@@ -39,7 +39,7 @@ az appservice plan create `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --sku B1 `
-    --is-linux false
+    --is-linux $false
 
 # Create Web App
 Write-Host "Creating Web App..." -ForegroundColor Green
