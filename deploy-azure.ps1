@@ -39,7 +39,6 @@ az appservice plan create `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --sku B1 `
-    --is-linux $false
 
 # Create Web App
 Write-Host "Creating Web App..." -ForegroundColor Green
@@ -47,15 +46,11 @@ az webapp create `
     --name $WEB_APP_NAME `
     --resource-group $RESOURCE_GROUP `
     --plan $APP_SERVICE_PLAN `
-    --runtime "NODE:18-lts"
+    --runtime "NODE:18lts"
 
 # Configure Web App Settings
 Write-Host "Configuring Web App Settings..." -ForegroundColor Green
-az webapp config set `
-    --name $WEB_APP_NAME `
-    --resource-group $RESOURCE_GROUP `
-    --startup-file "node backend/server.js" `
-    --node-version "18-lts"
+az webapp config set --name "$WEB_APP_NAME" --resource-group "$RESOURCE_GROUP" --startup-file "node backend/server.js"
 
 # Configure application settings
 Write-Host "Configuring Application Settings..." -ForegroundColor Green
